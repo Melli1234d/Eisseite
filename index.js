@@ -22,7 +22,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use('/static/', express.static('static'));// alle Statischen elemente der app in das Verzeichniss Static. alle Bilder hier
+app.use('/static/', express.static('static'));// alle Statischen elemente der app in das Verzeichniss Static.
 app.use('/bilder/', express.static('bilder')); //Verzeichniss für die bilder
 
 
@@ -35,7 +35,7 @@ app.get('/new',function (request, response) {
     response.render('messages',{"user":user.toString()});
 });
 
-app.get('/',function (request, response) { //index.html seite
+app.get('/',function (request, response) {
     response.render('home');
 });
 
@@ -55,8 +55,7 @@ app.post('/', function (request, response) {  //wird aufgerufen wenn ein neuer P
         user=request.body.userName;
         var test={"user":user};
         console.log(test);
-        response.render('messages', {"user":user, messages:getAllMessages()} );//hier an dieser stelle muss ein zweiter parameter her der die messages mit überträgt
-        //oder ein dritter der den user überträgt
+        response.render('messages', {"user":user, messages:getAllMessages()} );
     }
 });
 app.post('/new', function (request, response) {  //wird aufgerufen wenn ein neuer Post gemacht wird
