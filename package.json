@@ -1,0 +1,25 @@
+{
+  "name": "hausaufgabeeiscreme",
+  "version": "1.0.0",
+  "description": "1 Hausaufgabe Dynamische Webanwendung mit Nodejs und Express: Schritt 1",
+  "main": "index.js",
+  "body-parser": "^1.19.0",
+  "express": "^4.17.1",
+  "express-handlebars": "^3.1.0",
+  "fs": "0.0.1-security",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "author": "",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.7.3",
+    "handlebars-intl": "^1.1.2",
+    "index.js": "0.0.3"
+  }
+}

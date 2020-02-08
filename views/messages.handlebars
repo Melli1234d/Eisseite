@@ -1,0 +1,37 @@
+<h1>Hello {{{user}}}</h1>
+<ul class="message-list">
+    {{#messages}}
+    <li class="message-list-item">
+        <div class="message-list-item__author">
+            {{author}}
+        </div>
+        <div class="message-list-item__date">
+            {{date}}
+        </div>
+        <div class="message-list-item__text">
+            {{text}}
+        </div>
+        <form action="/delete" method="post">
+            <input type="hidden" value="{{id}}" name="id">
+            <button type="submit" class="button-delete">Löschen</button>
+        </form>
+    </li>
+    {{/messages}}
+</ul>
+<form action="/new" method="post" id="messageForm">
+    <div class="form-row">
+        <label for="messageAuthor">Author</label>
+        <input type="text" name="author" id="messageAuthor" placeholder="Hier bitte einen Author eingeben" value="{{user}}">
+    </div>
+    <div class="form-row">
+        <label for="messageText">Text</label>
+        <textarea name="text" id="messageText" rows="4" placeholder="Hier bitte eine Nachricht eingeben..."></textarea>
+    </div>
+    <div class="form-validation">
+        <span class="error" id="validationError" style="display: none">Author und Text dürfen nicht leer sein.</span>
+    </div>
+    <div class="form-controls">
+        <button id="sendButton" type="submit">Senden</button>
+    </div>
+</form>
+<script type="application/javascript" src="script.js"></script>

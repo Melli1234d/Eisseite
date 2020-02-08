@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+<body>
+    <script language="JavaScript">
+        document.getElementById("date").innerHTML = Date();
+        function createlistelement(text){ //Funktion um ein Listenelement zu erstellen
+            var li=document.createElement("li");
+            li.textContent=text;
+            return li;
+        }
+        function appendchild(parent,children){ //durchlauf der schleife um ein Listelement der UL hinzuzufügen
+            children.forEach(function(child){
+                parent.appendChild(child);
+            });
+        }
+        const Http=new XMLHttpRequest();        //HTML Request für die Listenelemente
+        const url='./static/eiscremliste.txt';
+        Http.open("GET",url);
+        Http.send();                            //ende des Requests mit anfrage
+
+        Http.onreadystatechange=function(){ //Wenn anfrage zurückkommt
+            if(this.readyState==4 &&this.status==200){  //wenn Ergebnis vollständig ist
+                var lines=Http.responseText.split(/\r\n|\r|\n/); //spalte auf nach neuer linie
+
+                var parent=document.getElementById("eiscremliste");  //ul Liste in der alles eingefügt werden soll
+                var children=[];  //Array der Li elemente
+                for(line=0;line<lines.length;line++)               //schleife welche die Li elemente erzeugt und mit text füllt
+                    children[line]=createlistelement(lines[line]);
+
+            }
+            appendchild(parent,children); //einfügen der li Kinderobjekte in das ul liste
+        };
+
+    </script>
+</head>
+
+<p id="date"></p>
+<div id="aussen">
+    <header>
+        <h1>
+            <img src="./bilder/icecream2.png" > Eiscafé
+        </h1>
+    </header>
+    <h1>Was ist deine Lieblingseissorte? </h1><br><br>
+    <div class="example">
+
+            <ul class="message-list" id="the-list">
+
+                <li class="message-list-item">
+                    <div class="message-list-item__author">
+                        Anna
+                    </div>
+                    <div class="message-list-item__text">
+                        Erdbeere
+                    </div>
+                </li>
+                <li class="message-list-item">
+                    <div class="message-list-item__author">
+                        Paul
+                    </div>
+                    <div class="message-list-item__text">
+                        Schokolade
+                    </div>
+                </li>
+            </ul>
+
+        let d = new Date();
+            <form action="/" method="post">
+                <div class="form-row">
+                    <label for="a">Author</label>
+                    <input type="text" name="author" id="a">
+
+                    <label for="b">Text</label>
+                    <textarea name="text" id="b" rows="4"></textarea>
+                </div>
+                <div class="form-controls">
+                    <button type="submit">Senden</button>
+                </div>
+            </form>
+    </div>
+</body>
+</html>
